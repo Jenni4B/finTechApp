@@ -1,14 +1,14 @@
-const http = require('http');
+import express from 'express';
+import sequelize from './config/database.js';
+import routes from './routes/index.js';
 
-const hostname = '127.0.0.1';
-const port = 3000;
+sequelize.authenticate()
+    .then(() => console.log('Database connected.'))
+    .catch(err => console.log('Error connecting to database: ', err));
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
-});
+app.use('/', routes);
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
