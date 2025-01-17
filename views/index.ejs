@@ -1,16 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinTechApp</title>
-    <!-- <link rel="stylesheet" href="styleindex.css"> -->
-    <script defer src="server.js"></script>
+    <title>FinTech - Manage Your Finances</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                    }
+                }
+            }
+        }
+    </script>
+
 </head>
-<body>
-    <nav>
-        <header>
-            <h1>FinTechApp</h1>
-        </header>
+
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
+
+    <header class="p-4">
+
+        <nav class="flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary">FinTech</a>
+        </nav>
+
+    </header>
+
+    <main class="flex-grow flex items-center justify-center px-4">
+
+        <div class="max-w-2xl w-full bg-gray-800 p-8 rounded-lg shadow-lg">
+
+            <h1 class="text-4xl font-bold mb-4">Welcome to FinTech</h1>
+            <p class="text-xl mb-8">Manage your finances with our secure and easy-to-use platform.</p>
+            <p class="mb-6">Get started by creating an account or logging in.</p>
+
+            <div class="flex space-x-4">
+                <a href="/register" class="bg-primary text-white px-6 py-2 rounded hover:bg-blue-600 transition">Register</a>
+                <a href="/login" class="bg-gray-600 text-white px-6 py-2 rounded hover:bg-gray-700 transition">Login</a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="p-4 text-center text-sm text-gray-500">
+        <p>&copy; 2025 FinTech App. Launchpad Philly All rights reserved.</p>
+    </footer>
 </body>
 </html>

@@ -1,6 +1,6 @@
 import express from 'express';
-import sequelize from './config/database.js';
-import routes from './routes/index.js';
+import sequelize from './database.js';
+import routes from '../routes/index.js';
 
 sequelize.authenticate()
     .then(() => console.log('Database connected.'))
