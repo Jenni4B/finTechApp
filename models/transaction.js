@@ -16,9 +16,9 @@ const Transaction = sequelize.define('Transaction', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    descrip: {
+    trans_description: {
         type: DataTypes.STRING
     }
 });
 
-module.exports = Transaction;
+export default Transaction;
