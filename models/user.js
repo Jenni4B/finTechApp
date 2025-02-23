@@ -1,33 +1,42 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/dbconn.js";
 
-const User = sequelize.define('Users', {
-    username: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-        validate: {
-            len: [3, 30]
-        }
+const User = sequelize.define(
+  'User',
+  {
+    user_id: {
+      type: DataTypes.BIGINT.UNSIGNED,
+      primaryKey: true,
+      autoIncrement: true,
+      allowNull: false,
+    },
+    first_name: {
+      type: DataTypes.STRING(20), 
+      allowNull: true,
+    },
+    last_name: {
+      type: DataTypes.STRING(30), 
+      allowNull: true,
     },
     email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-        validate: {
-            isEmail: true
-        }
+      type: DataTypes.STRING(50),
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
+      },
     },
-    pwd_hash: { //password hash
-        type: DataTypes.STRING,
-        allowNull: false
+    pwd_hash: {
+      type: DataTypes.STRING(60), 
+      allowNull: false,
     },
-    balance: {
-        type: DataTypes.DECIMAL(10, 2),
-        defaultValue: 0.00
-    }
-}, {
-    timestamps: true
-});
+  },
+  {
+    timestamps: true,          
+    createdAt: 'created_at',     
+    updatedAt: 'updated_at',      
+    tableName: 'users',            
+  }
+);
 
 export default User;

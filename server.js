@@ -6,7 +6,7 @@ const PORT = 3000;
 app.set('view engine', 'ejs');
 
 // Define the root route to render your EJS file
-app.get('/', (req, res) => res.render('dashboard')); // root route
+app.get('/', (req, res) => res.render('homepage')); // root route
 app.get('/register', (req, res) => res.render('register')); // render register page
 app.get('/login', (req, res) => res.render('login')); // render login page
 
