@@ -2,12 +2,13 @@ import { DataTypes } from 'sequelize';
 import sequelize from '../config/database';
 
 const Transaction = sequelize.define('Transaction', {
-    id: {
+    trans_id: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
     user_id: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull: false
     },
     amount: {
         type: DataTypes.FLOAT

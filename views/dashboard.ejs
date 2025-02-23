@@ -34,19 +34,32 @@
         </nav>
 
     </header>
-
-    <main class="flex-grow flex items-center justify-center px-4">
-
-        <div class="max-w-2xl w-full bg-gray-800 p-8 rounded-lg shadow-lg">
-
-            <div class="flex space-x-4">
+    <div class="container">
+        <h1>Expense Tracker</h1>
+        <div class="balance-section">
+            <div>  
 
             </div>
-
+            <a href="/user/logout" class="logout-button" id="logoutButton">Logout</a>
         </div>
+        
+        <form id="transaction-form" class="transaction-form" action="/transactions" method="POST">
+            <textarea id="description" name="description" placeholder="Description" required></textarea>
+            <input type="number" id="amount" name="amount" placeholder="Amount" required>
+            <select id="type" name="type">
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+                <option value="withdraw">Withdraw</option>
+            </select>
+            <button id="submit-btn" type="submit">Add Transaction</button>
+        </form>
+        
+        <div class="transaction-box">
+            <h2>Transactions</h2>
+            <div id="transaction-list" class="transaction-list"></div>
 
-    </main>
-
+            </div>  
+    </div>
     <footer class="p-4 text-center text-sm text-gray-500">
         <p>&copy; 2025 FinTech App. Launchpad Philly All rights reserved.</p>
     </footer>

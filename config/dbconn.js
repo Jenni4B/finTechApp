@@ -1,14 +1,26 @@
-import express from 'express';
-import sequelize from './database.js';
-import routes from '../routes/index.js';
+import { Sequelize } from 'sequelize';
+import 'dotenv/config';
 
-sequelize.authenticate()
-    .then(() => console.log('Database connected.'))
-    .catch(err => console.log('Error connecting to database: ', err));
+const sequelize = new Sequelize(
+    // Database name, username, password
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASSWORD,
+    { 
+        host: process.env.DB_HOST,
+        dialect: process.env.DB_DIALECT
+    }
+);
 
-app.use('/', routes);
+    // Auth to ensure DB connection
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+    try {
+        await sequelize.authenticate();
+        console.log("Connection to database establiashed")
+    } catch (error) {
+        console.error("Unable to connect to database")
+    }
+
+
+// module.exports = sequelize
+export default sequelize;
