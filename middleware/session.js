@@ -1,5 +1,4 @@
 import session from "express-session";
-import flash from 'connect-flash';
 import cookieParser from "cookie-parser";
 
 app.use(cookieParser());

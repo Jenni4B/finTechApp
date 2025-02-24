@@ -1,24 +1,24 @@
 import express from 'express';
-const router = express.Router();
+import { Transaction } from '../models/Transaction.js';
 
-
-router.get('/', async (req, res) => {
+const transRoutes = express.Router();
+transRoutes.get('/', async (req, res) => {
     // dashboard logic
 
 });
 
-router.get('/transactions', async (req, res) =>{
+transRoutes.get('/transactions', async (req, res) =>{
     // Transaction history logic
     try {
         const transactions = await Transaction.findAll();
         res.render('index', { transactions }); // Render the template with transactions data
 
     } catch (error) {
-
+        console.log("Error: " + error);
         console.error(error);
         res.status(500).json({ message: 'Server error' });
     }
 
 })
 
-export default router;
+export default transRoutes;

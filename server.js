@@ -1,4 +1,5 @@
 import express from 'express'; // es6 module import
+import basicRoutes from './routes/basicRoutes.js'; // import basicRoutes from routes folder
 const app = express();
 const PORT = 3000;
 
@@ -7,11 +8,10 @@ app.set('view engine', 'ejs');
 
 // Define the root route to render your EJS file
 app.get('/', (req, res) => res.render('homepage')); // root route
-app.get('/register', (req, res) => res.render('register')); // render register page
-app.get('/login', (req, res) => res.render('login')); // render login page
 
+// Apply the basic routes
 
-
+app.use('/', basicRoutes); // apply basic routes to root route
 
 
 // Login Logic/Authentication

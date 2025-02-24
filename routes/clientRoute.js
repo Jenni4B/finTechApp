@@ -3,10 +3,10 @@ import jwt from 'jsonwebtoken'; // Importing jsonwebtoken for token
 import bcrypt from 'bcrypt'; 
 import User from '../models/user.js'; 
 
-const router = express.Router();
+const clientRoute = express.Router();
 
 // Signup route
-router.post('/signup', async (req, res) => {
+clientRoute.post('/signup', async (req, res) => {
   // Destructuring username, email, and password
   const { username, email, password } = req.body;
 
@@ -40,7 +40,7 @@ router.post('/signup', async (req, res) => {
 });
 
 // Login route
-router.post('/login', async (req, res) => {
+clientRoute.post('/login', async (req, res) => {
   // Destructuring email and password from the request body
   const { email, password } = req.body;
 
@@ -84,12 +84,12 @@ router.post('/login', async (req, res) => {
 });
 
 // Logout route
-router.get('/logout', (req, res) => {
+clientRoute.get('/logout', (req, res) => {
   // Clear the authentication token cookie
   res.clearCookie('auth_token');
   // Redirect to the login page after logout
   res.redirect('/login');
 });
 
-// Export the router to be used in other parts of the application
-export default router;
+// Export the clientRoute to be used in other parts of the application
+export default clientRoute;
